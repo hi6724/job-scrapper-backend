@@ -36,8 +36,10 @@ def get_jobs(**kwargs):
                 "class": "post-list-corp"
             }).find("a").string
             info = i.find("div", {"class": "post-list-info"})
-            title = info.find("a")['title']
-
+            title_soup = info.find("a")
+            title = title_soup['title']
+            link = title_soup['href']
+            print("https://www.jobkorea.co.kr/" + link)
             temp_options = info.find('p', {"class": "option"}).find_all("span")
             for option in temp_options:
                 try:
@@ -53,6 +55,7 @@ def get_jobs(**kwargs):
                 except:
                     etc += ee
             results["data"].append({
+                "link": link,
                 "title": title,
                 "company": company,
                 "options": options[:-1],
@@ -61,5 +64,16 @@ def get_jobs(**kwargs):
         except:
             pass
 
-    print(url)
     return results
+
+
+get_jobs(keyword="react",
+         Page_No=1,
+         careerType="none",
+         careerMin="none",
+         careerMax="none",
+         edu="none",
+         cotype="none",
+         jobtype="none",
+         payMin="none",
+         payMax="none")
