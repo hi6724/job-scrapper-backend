@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.admin', 'django.contrib.auth',
     'django.contrib.contenttypes', 'django.contrib.sessions',
     'django.contrib.messages', 'django.contrib.staticfiles', 'quiz',
-    'rest_framework', 'corsheaders','fly'
+    'rest_framework', 'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 CORS_ORIGIN_WHITELIST = [
-    'https://nomadjobs.netlify.app/', 'http://localhost:3000'
+    'https://nomadjobs.netlify.app', 'http://localhost:3000'
 ]
 CORS_ALLOW_CREDENTIALS = True
 
